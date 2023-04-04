@@ -28,16 +28,16 @@ app.get('/contact',(req,res)=>{
 
 
 //creation de la 1ere route
-app.get('/', (req,res)=>{
-    res.send("welcome ")
-})
+// app.get('/', (req,res)=>{
+//     res.send("welcome ")
+// })
 // //ajout du middleware
  app.get('/middleware',AddDate,(req,res,next)=>{
  res.send("the date: " +req.date);
  })
- app.get('/NOmiddleware',(req,res,next)=>{
+ app.get('/NOmiddleware',AddDate,(req,res,next)=>{
      console.log(req)
-     res.send("the date is "+req.date);
+     res.send("the date is: "+req.date);
  })
 
 
