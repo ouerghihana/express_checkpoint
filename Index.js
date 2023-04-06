@@ -12,11 +12,11 @@ const AddDate = require('./middleware/middle')
 
 
 app.use(express.static('Public'));
-app.get('/home',(req,res)=>{
+app.get('/',(req,res)=>{
     res.sendFile(__dirname + '/Public/home.html')
 })
 
-app.get('/outOfService',(req,res)=>{
+app.get('/outOfService',AddDate,(req,res)=>{
     res.sendFile(__dirname + '/Public/outOfService.html')
 })
 
@@ -32,13 +32,13 @@ app.get('/contact',(req,res)=>{
 //     res.send("welcome ")
 // })
 // //ajout du middleware
- app.get('/middleware',AddDate,(req,res,next)=>{
- res.send("the date: " +req.date);
- })
- app.get('/NOmiddleware',AddDate,(req,res,next)=>{
-     console.log(req)
-     res.send("the date is: "+req.date);
- })
+//  app.get('/middleware',AddDate,(req,res,next)=>{
+//  res.send("the date: " +req.date);
+//  })
+//  app.get('/NOmiddleware',AddDate,(req,res,next)=>{
+//      console.log(req)
+//      res.send("the date is: "+req.date);
+//  })
 
 
 
